@@ -4,6 +4,8 @@ WORKDIR /projectmanager
 
 COPY requirements.txt /projectmanager/
 
+RUN apt-get update && apt-get install -y apturl
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /projectmanager/
