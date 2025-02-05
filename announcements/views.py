@@ -51,7 +51,7 @@ class DeletedWorkRequestListView(ListAPIView):
 
 class MyWorkRequestListView(ListCreateAPIView):
     serializer_class = WorkRequestSerializer
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         user_id = self.kwargs['pk']

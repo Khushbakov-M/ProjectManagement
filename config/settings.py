@@ -14,6 +14,7 @@ from datetime import timedelta
 from pathlib import Path
 import environ
 import os
+import dj_database_url
 
 env = environ.Env(
     DEBUG=(bool, False)  # Default value and cast type
@@ -34,7 +35,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost'])
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 CORS_ALLOWED_ORIGINS = env.list('CORS_ALLOWED_ORIGINS', default=["http://127.0.0.1:5500"])
 
@@ -105,15 +106,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
-    'default': {
-        'ENGINE': env('ENGINE'),
-        'NAME': env('NAME'),
-        'USER': env('USER'),
-        'PASSWORD': env('PASSWORD'),
-        'HOST': env('HOST'),
-        'PORT': env('PORT'),
-    }
+    'default': dj_database_url.parse(env("DATABASE_URL"))
 }
 
 

@@ -118,7 +118,7 @@ class DeveloperCreateAPIView(generics.ListCreateAPIView):
 class DeveloperDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Developer.objects.all()
     serializer_class = DeveloperSerializer 
-    permission_classes = [IsAuthenticated]
+    permission_classes = []
 
 class DevelopersFromTeamAPIView(generics.ListAPIView):
     serializer_class = DevelopersFromTeamSerializer 
