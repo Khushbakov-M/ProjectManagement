@@ -26,7 +26,7 @@ psycopg2-binary==2.9.9
 pycryptodomex==3.11.0
 PyJWT==2.3.0
 requests==2.25.1
-scipy==1.8.0
+scipy>=1.9.0
 sqlparse==0.4.2
 pytz==2022.1
 typing_extensions==4.12.2
